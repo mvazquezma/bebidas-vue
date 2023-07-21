@@ -1,13 +1,14 @@
 <script setup>
-     import { computed } from 'vue'
+    import { computed } from 'vue'
     import { RouterLink, useRoute } from 'vue-router';
+    import { useBebidasStore } from '../stores/bebidas'
     import NavLink from './UI/NavLink.vue';
 
     const route = useRoute()
+    const store = useBebidasStore() // Nunca añadir destructuring porque rompe la reactividad
+    console.log(store);
 
     const paginaInicio = computed(() => route.name === 'inicio')
-
-    console.log(route);
 </script>
 
 <template>
