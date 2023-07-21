@@ -1,5 +1,6 @@
 <script setup>
     import { RouterLink } from 'vue-router';
+    import NavLink from './UI/NavLink.vue';
 </script>
 
 <template>
@@ -17,20 +18,13 @@
                 </div>
 
                 <nav class="flex gap-4">
-                    <RouterLink
-                        :to="{name: 'inicio'}"
-                        class="text-white uppercase font-bold"
-                        active-class="text-orange-500"
-                    >
+                    <NavLink to="inicio">
                         Inicio
-                    </RouterLink>
-                    <RouterLink
-                        :to="{name: 'favoritos'}"
-                        class="text-white uppercase font-bold"
-                        active-class="text-orange-500"
-                    >
+                    </NavLink>
+                    <NavLink to="favoritos">
                         Favoritos
-                    </RouterLink>
+                    </NavLink>
+                    
                 </nav>
             </div>
 
