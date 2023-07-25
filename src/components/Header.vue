@@ -30,7 +30,7 @@
                     </RouterLink>
                 </div>
 
-                <nav class="flex gap-4">
+                <nav class="flex gap-4 text-white">
                     <NavLink to="inicio">
                         Inicio
                     </NavLink>

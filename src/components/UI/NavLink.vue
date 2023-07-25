@@ -11,7 +11,7 @@
 <template>
     <RouterLink
         :to="{name: to}"
-        class="text-white uppercase font-bold"
+        class="uppercase font-bold"
         active-class="text-orange-500"
     >
         <slot></slot>
