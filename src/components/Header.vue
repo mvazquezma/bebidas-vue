@@ -2,15 +2,38 @@
     import { computed } from 'vue'
     import { RouterLink, useRoute } from 'vue-router';
     import { useBebidasStore } from '../stores/bebidas'
+    import { useNotificacionStore } from '../stores/notificaciones';
     import NavLink from './UI/NavLink.vue';
 
     const route = useRoute()
     const store = useBebidasStore() // Nunca añadir destructuring porque rompe la reactividad
-
+    const notificaciones = useNotificacionStore()
     const paginaInicio = computed(() => route.name === 'inicio')
 
     const handleSubmit = () => {
-        // TODO: validar
+        if(Object.values(store.busqueda).includes('')) {
+            // Tenemos 3 opciones de cambiar los valores del estado de la notificacion
+           /* Opcion 1
+            notificaciones.texto = 'Todos los campos son obligatorios'
+            notificaciones.mostrar = true
+            notificaciones.error = true */
+
+            /* Opcion 2
+            notificaciones.$patch({
+                texto: 'Todos los campos son obligatorios',
+                mostrar: true,
+                error: true
+            }) */
+
+            /* Opcion 3 */
+            notificaciones.$state = {
+                texto: 'Todos los campos son obligatorios',
+                mostrar: true,
+                error: true
+            }
+            
+            return
+        }
         store.obtenerRecetas()
     }
 </script>
